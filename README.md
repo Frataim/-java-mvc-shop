@@ -74,7 +74,7 @@ password: password
 ### 3. Собрать проект
 
 ```bash
-mvn clean package
+./mvnw clean package
 ```
 
 После сборки появится файл:
@@ -83,7 +83,11 @@ mvn clean package
 target/online-shop.war
 ```
 
-Если команда `mvn` не найдена, нужно установить Maven или открыть проект в IntelliJ IDEA как Maven-проект.
+Файл `mvnw` - это Maven Wrapper. Он сам скачает нужную версию Maven, поэтому устанавливать Maven отдельно не обязательно. На Windows используйте:
+
+```bat
+mvnw.cmd clean package
+```
 
 ### 4. Запустить в Tomcat
 
