@@ -53,6 +53,14 @@ mysql -u root -p < database/init.sql
 
 Скрипт можно запускать повторно: он пересоздаёт таблицы и добавляет тестовые данные.
 
+Если локального MySQL нет, можно поднять MySQL 8 через Docker:
+
+```bash
+docker compose up -d mysql
+```
+
+В этом варианте пароль root будет `password`, база `online_shop` создастся автоматически, а `database/init.sql` применится при первом создании контейнера.
+
 ### 2. Настроить подключение к MySQL
 
 По умолчанию приложение подключается так:
@@ -95,6 +103,34 @@ mvnw.cmd clean package
 
 ```text
 http://localhost:8080/online-shop/products
+```
+
+Для локальной проверки можно запустить встроенный Tomcat через Maven Cargo:
+
+```bash
+./mvnw cargo:run
+```
+
+После запуска откройте:
+
+```text
+http://localhost:8080/online-shop/products
+```
+
+Для полного сценария с товарами, корзиной и заказами MySQL должен быть запущен, а `database/init.sql` должен быть применён.
+
+Если приложение уже запущено через Cargo, остановите его сочетанием `Ctrl+C`.
+
+Остановить локальный MySQL-контейнер можно так:
+
+```bash
+docker compose stop mysql
+```
+
+Полностью удалить контейнер и тестовые данные можно так:
+
+```bash
+docker compose down -v
 ```
 
 ## Как объяснить MVC на защите

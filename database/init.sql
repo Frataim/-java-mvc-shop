@@ -2,6 +2,7 @@ CREATE DATABASE IF NOT EXISTS online_shop
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
 USE online_shop;
+SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS order_items;
 DROP TABLE IF EXISTS orders;
