@@ -3,3 +3,5 @@ target/
 .DS_Store
 *.class
 *.war
+PROJECT_DEVELOPMENT.md
+Project_development.md
